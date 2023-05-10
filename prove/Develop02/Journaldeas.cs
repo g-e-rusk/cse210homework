@@ -1,4 +1,4 @@
-// This is the template for the PromptGenerator class
+// This is the template for the JournalIdeas class
 // This stores the prompts and then returns a randomly selected one
 
 public class JournalIdeas
@@ -29,8 +29,7 @@ public class JournalIdeas
 
         public void DisplayDailyPrompt() {
             int index = random.Next(prompts.Length);
-            Console.WriteLine($"{prompts[index]}");
-            Console.Write("> ");
+            Console.WriteLine($"{prompts[index]}");            
         }
 
 

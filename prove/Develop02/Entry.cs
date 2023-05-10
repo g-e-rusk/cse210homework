@@ -5,12 +5,21 @@ public class Entry {
     public string _userResponse = "";
     public string _dateWritten = "";
 
+    public string _promptUsed = "";
+
     //public List<JournalIdeas> _dailyPrompt = new List<JournalIdeas>();
 
     
-    public void DisplayEntry() {
+    public void entryDisplay() {
         JournalIdeas entryPrompt = new JournalIdeas();
         entryPrompt.DisplayDailyPrompt();
+        Console.Write("> ");
+    }
+
+    public void addEntry() {
+        Console.Write($"{_dateWritten}");
+        Console.WriteLine($"{_promptUsed}");
+        Console.WriteLine($"{_userResponse}");
     }
 }
 
