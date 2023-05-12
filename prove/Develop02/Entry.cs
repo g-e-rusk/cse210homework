@@ -8,9 +8,7 @@ public class Entry {
 
     public Entry()
     {
-        _dateWritten = GetDate();
-        _promptUsed = GetPrompt();
-        _userResponse = GetResponse();
+        
     }
     
     // Method for getting the date as a string

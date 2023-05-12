@@ -26,12 +26,12 @@ public class Journal {
 
 
     // Method to save to a file with user supplied filename
-    public static void SaveToFile(List<Entry> journal)
+    public void SaveToFile()
     {
         Console.Write("Please enter your filename as a .txt: ");
         string filename = Console.ReadLine();
 
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter(filename, true))
         {
             foreach (Entry journalEntry in journal)
             {

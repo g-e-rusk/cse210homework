@@ -20,33 +20,30 @@ class Program
             Console.Write("What would you like to do? ");
             menuSelection = int.Parse(Console.ReadLine());
 
-                if (menuSelection == 1) {
-                    Entry e = new Entry();
-                    e._dateWritten = e.GetDate();
-                    e._promptUsed = e.GetPrompt();
-                    e._userResponse = e.GetResponse();
-                    journalEntry.journal.Add(e);
+            if (menuSelection == 1) {
+                Entry e = new Entry();
+                e._dateWritten = e.GetDate();
+                e._promptUsed = e.GetPrompt();
+                e._userResponse = e.GetResponse();
+                journalEntry.journal.Add(e);
+            }
+    
+            if (menuSelection == 2) {
+                journalEntry.DisplayEntries();
+                
+            }
+    
+            if (menuSelection == 3) {
+                List<Entry> newEntry = Journal.ReadFromFile();
+                foreach (Entry e in newEntry) {
+                    Console.WriteLine($"{e._dateWritten} - {e._promptUsed}");
+                    Console.WriteLine($"{e._userResponse}");
                 }
-        
-                if (menuSelection == 2) {
-                    journalEntry.DisplayEntries();
-                    
-                }
-        
-                if (menuSelection == 3) {
-                    List<Entry> newEntry = Journal.ReadFromFile();
-                    foreach (Entry e in newEntry) {
-                        Console.WriteLine($"{e._dateWritten} - {e._promptUsed}");
-                        Console.WriteLine($"{e._userResponse}");
-                    }
-                }
-        
-                // if (menuSelection == 4) {
-                //     Journal save = new Journal();
-                //     save.SaveToFile();
-                // }
-        
-
+            }
+    
+            if (menuSelection == 4) {
+                journalEntry.SaveToFile();
+            }
         }
     }
 }
