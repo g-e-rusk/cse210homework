@@ -27,9 +27,10 @@ public class JournalIdeas
         "How can I make tomorrow even better? "
     };
 
-        public void DisplayDailyPrompt() {
+        public string DisplayDailyPrompt() {
             int index = random.Next(prompts.Length);
-            Console.WriteLine($"{prompts[index]}");            
+            string randomPrompt = prompts[index];
+            return randomPrompt;
         }
 
 
