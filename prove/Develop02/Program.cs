@@ -29,8 +29,7 @@ class Program
             }
     
             if (menuSelection == 2) {
-                journalEntry.DisplayEntries();
-                
+                journalEntry.DisplayEntries();                
             }
     
             if (menuSelection == 3) {
