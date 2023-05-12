@@ -48,8 +48,7 @@ public class Journal {
         Console.Write("Please enter your filename as a .txt: ");
         string filename = Console.ReadLine();
 
-        
-        
+        string[] lines = System.IO.File.ReadAllLines(filename);
 
         foreach (string line in lines)
         {
