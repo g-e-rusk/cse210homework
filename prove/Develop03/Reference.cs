@@ -4,20 +4,20 @@ public class Reference
 {
     // Private member variables
     private string _book;
-    private int _chapter;
-    private int _verse;
-    private int _endVerse;
+    private string _chapter;
+    private string _verse;
+    private string _endVerse;
 
 
     // Constructors
-    public Reference(string book, int chapter, int verse)
+    public Reference(string book, string chapter, string verse)
     {
         _book = book;
         _chapter = chapter;
         _verse = verse;
     }
 
-    public Reference(string book, int chapter, int verse, int endVerse)
+    public Reference(string book, string chapter, string verse, string endVerse)
     {
         _book = book;
         _chapter = chapter;
@@ -26,15 +26,18 @@ public class Reference
     }
 
     // Behavior method for getting the reference
-    public string GetReference()
-    {
-            return _book + " " + _chapter + ":" + _verse;
-        
-    }
     
-    public override string ToString()
+    public void GetReference()
     {
-        return GetReference();
+        if (_endVerse == "0")
+        {
+            Console.Write($"{_book} {_chapter}:{_verse}");
+            
+        } else
+        {
+            Console.Write($"{_book} {_chapter}:{_verse}-{_endVerse}");
+        }
+        
      }
 
 }

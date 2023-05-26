@@ -4,35 +4,42 @@ public class Word
 {
     // Private member variable attribute
     private string _word;
+    private bool _hidden;
+
 
     // Constructor
 
-    public Word()
-    {
-    } 
     public Word(string word)
     {
         _word = word;
+        _hidden = false;
     }
+
 
     // Behavior attributes for the Word class
     public void HideWord()
     {
-
+        _hidden = true;
     }
 
-    public void ShowWord()
+    public void RenderText()
     {
-
+        if (_hidden == true)
+        {
+            foreach(char letter in _word) 
+            {
+                Console.Write("_");
+            }
+           
+        }
+        else 
+        {
+            Console.Write($"{_word}");
+        }
     }
 
-    public string RenderText()
+    public bool GetHidden()
     {
-        return "Jesus wept.";
+        return _hidden;
     }
-
-//     public bool IsHidden()
-//     {
-//         return ;
-//     }
 }
