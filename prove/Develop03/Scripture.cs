@@ -8,29 +8,34 @@ public class Scripture
     private List<Word> _word = new List<Word>();
 
     // Constructors
-    public Scripture(string reference, List<Word> word)
+
+    public Scripture ()
+    {
+    }
+    public Scripture (string reference, List<Word> _word)
     {
         _reference = reference;
-        _word = word;
+        _word = new List<Word>();
     }
-
 
     // Behavior methods for Scripture class
 
-    public void HideWords()
-    {
+    
+    // public void HideWords()
+    // {
 
+    // }
+
+    public string GetRenderedText()
+    {
+        Word _word = new Word();
+        return _word.RenderText();
     }
 
-//     public string GetRenderedText()
-//     {
-//         return ;
-//     }
+    // public void CompletelyHidden()
+    // {
 
-    public void CompletelyHidden()
-    {
-
-    }
+    // }
 
 //     public override string ToString()
 //     {

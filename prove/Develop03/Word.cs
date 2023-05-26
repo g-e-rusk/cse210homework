@@ -6,6 +6,10 @@ public class Word
     private string _word;
 
     // Constructor
+
+    public Word()
+    {
+    } 
     public Word(string word)
     {
         _word = word;
@@ -22,10 +26,10 @@ public class Word
 
     }
 
-//     public string RenderText()
-//     {
-//         return ;
-//     }
+    public string RenderText()
+    {
+        return "Jesus wept.";
+    }
 
 //     public bool IsHidden()
 //     {
