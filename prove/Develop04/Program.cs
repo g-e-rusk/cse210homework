@@ -6,7 +6,7 @@ class Program
     {
         int menuResponse = 0;
 
-        
+        // Creating the main menu. As long as the user does not type 5, the program will run in a loop until the user enters 5.
         while (menuResponse != 5)
         {   
             Console.Clear();
@@ -26,6 +26,7 @@ class Program
 
             while (menuResponse == 1)
             {
+                // Instantiating the BreathingActivity class
                 BreathingActivity ba = new BreathingActivity();
                 ba.RunBreathingActivity();
                 break;
@@ -33,6 +34,7 @@ class Program
 
             while (menuResponse == 2)
             {
+                // Instantiating the ReflectingActivity class
                 ReflectingActivity ra = new ReflectingActivity();
                 ra.RunReflectingActivity();
                 break;
@@ -40,6 +42,7 @@ class Program
 
             while (menuResponse == 3)
             {
+                //Instantiating the Listing Activity class
                 ListingActivity la = new ListingActivity();
                 la.RunListingActivity();
                 break;
@@ -47,6 +50,7 @@ class Program
 
             while (menuResponse == 4)
             {
+                // EXTRA: Instantiating the Oberservation class.  This is an extra class which will allow the user to focus on one thing in nature.
                 ObservationActivity oa = new ObservationActivity();
                 oa.RunObservationActivity();
                 break;

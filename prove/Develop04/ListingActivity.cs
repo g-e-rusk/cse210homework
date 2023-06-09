@@ -28,7 +28,7 @@ public class ListingActivity : Activity
         return _randomPrompt[index];
     }
 
-    public void RunListingActivity()
+    public void RunListingActivity() // Main method called when this class is instantiated.  Also uses the Stopwatch buil-in class for keeping the timing of the activity.
     {
         Console.Clear();
         GetStartMsg();

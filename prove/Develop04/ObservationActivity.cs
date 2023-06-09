@@ -10,7 +10,7 @@ public class ObservationActivity : Activity
         _activityDescription = "This activity will help you to clear you mind while admiring God's creations.";
     }
 
-    public void RunObservationActivity()
+    public void RunObservationActivity() // Main method called when the class is instantiated
     {
         Console.Clear();
         GetStartMsg();

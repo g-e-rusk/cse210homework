@@ -1,5 +1,6 @@
 using System;
 
+// BASE CLASS for all other classes
 public class Activity
 {
     // Private member variables
@@ -12,7 +13,7 @@ public class Activity
 
 
     // Methods
-    public void GetStartMsg()
+    public void GetStartMsg() // This is the starting message that will initiate when the person chooses a number from the main menu.
     {
         Console.WriteLine($"Welcome to the {_activityName} Activity.");
         Console.WriteLine();
@@ -27,7 +28,16 @@ public class Activity
         Console.WriteLine("\n");
     }
 
-    public void GetTimer(int duration)
+    public void GetEndMsg() // This is the ending message which ends each activity.
+    {
+        Console.WriteLine("Well done!!");
+        GetPauseAnimation(5);
+        Console.WriteLine();
+        Console.WriteLine($"You have completed {_duration} seconds of the {_activityName} Activity.");
+        GetPauseAnimation(5);
+    }
+
+    public void GetTimer(int duration) // Used in the Reflecting and Observation class activities
     {        
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(duration);
@@ -41,16 +51,9 @@ public class Activity
         }
     }
 
-    public void GetEndMsg() 
-    {
-        Console.WriteLine("Well done!!");
-        GetPauseAnimation(5);
-        Console.WriteLine();
-        Console.WriteLine($"You have completed {_duration} seconds of the {_activityName} Activity.");
-        GetPauseAnimation(5);
-    }
+    
 
-    public void GetPauseAnimation(int duration)
+    public void GetPauseAnimation(int duration) // Called when each program starts and ends as part of the Start and End Messages
     {
         
         DateTime startTime = DateTime.Now;
@@ -73,7 +76,7 @@ public class Activity
         Console.CursorVisible = true;
     }
 
-    public void GetCountdown(int countdownTime)
+    public void GetCountdown(int countdownTime) // Used in the breathing activity
     {
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(countdownTime);

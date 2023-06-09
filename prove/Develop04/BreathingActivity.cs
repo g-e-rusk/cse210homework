@@ -15,7 +15,7 @@ public class BreathingActivity : Activity
 
     // Methods
 
-    public void RunBreathingActivity()
+    public void RunBreathingActivity()  // Main method for when the class is instantiated
     {
        Console.Clear();
        GetStartMsg();

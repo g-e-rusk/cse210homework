@@ -54,6 +54,7 @@ public class ReflectingActivity : Activity
         Console.WriteLine("\nPress enter when you are ready.");
         Console.ReadLine();
 
+        // Using the built-in Stopwatch class which allows us to keep track of time after the user presses the enter key.
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
         int counter = 0;
