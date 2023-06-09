@@ -20,10 +20,10 @@ public class ObservationActivity : Activity
         Console.Write("What object will you be focusing on? ");
         _object = Console.ReadLine();
         Console.WriteLine($"Concentrate on every aspect of your {_object}.  When you are ready to begin, clear your mind and press enter.");
-
+        Console.CursorVisible = false;
         Console.ReadLine();
         GetTimer(_duration);
-
+        Console.CursorVisible = true;
         GetEndMsg();
 
 
