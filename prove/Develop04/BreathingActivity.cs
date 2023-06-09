@@ -17,17 +17,20 @@ public class BreathingActivity : Activity
     public void RunBreathingActivity()
     {
        Console.Clear();
-       GetStartMsg();
+       GetStartMsg(GetDuration());
        
+       GetTimer();
+
+       Console.WriteLine("Done");
 
        
-       _breatheInTime = 5;
-       _breatheOutTime = 5;
+    //    _breatheInTime = 5;
+    //    _breatheOutTime = 5;
 
-       while (_duration < (_breatheInTime + _breatheOutTime))
-       {
+    //    while (_duration < (_breatheInTime + _breatheOutTime))
+    //    {
 
-       }
+    //    }
 
 
     

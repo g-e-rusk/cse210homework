@@ -14,15 +14,25 @@ public class Activity
         _activityDescription = description;
     }
 
+    public int GetDuration()
+    {
+        return _duration;
+    }
+
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
+    }
+
     // Methods
-    public void GetStartMsg()
+    public void GetStartMsg(int duration)
     {
         Console.WriteLine($"Welcome to the {_activityName} Activity.");
         Console.WriteLine();
         Console.WriteLine($"{_activityDescription}");
         Console.WriteLine();
         Console.Write("How long, in seconds, would you like for your session? ");
-        _duration = int.Parse(Console.ReadLine());
+        duration = int.Parse(Console.ReadLine());
 
         Console.Clear();
         Console.Write("Get Ready...");
@@ -34,15 +44,14 @@ public class Activity
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(_duration);
 
-        Thread.Sleep(_duration * 1000);
-
-        DateTime currentTime = DateTime.Now;
-        if (currentTime < futureTime)
+        for (int i = _duration; i > 0; i-- )
         {
-            //Console.WriteLine("We have not arrived at our future time yet...");
+            Console.Write(".");
         }
-
+        
+        Thread.Sleep(_duration * 1000);
     }
+        
 
     public void GetEndMsg() 
     {
@@ -68,12 +77,12 @@ public class Activity
         DateTime endTime = startTime.AddSeconds(5);
 
         int i = 0;
-
+        Console.CursorVisible = false;
         while (DateTime.Now < endTime)
         {
             string s = animationStrings[i];
             Console.Write(s);
-            Thread.Sleep(500);
+            Thread.Sleep(250);
             Console.Write("\b \b");
 
             i++;
@@ -83,6 +92,7 @@ public class Activity
                 i = 0;
             }
         }
+        Console.CursorVisible = true;
     }
 
     public void GetPauseCountdown()
