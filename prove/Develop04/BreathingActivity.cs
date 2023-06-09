@@ -3,13 +3,14 @@ using System;
 public class BreathingActivity : Activity
 {
     // Private Member Variables
-    private int _breatheInTime;
-    private int _breatheOutTime;
+    private int _breatheInTime = 5;
+    private int _breatheOutTime = 5;
 
     // Constructors
-    public BreathingActivity(string name, string description) : base(name, description)
+    public BreathingActivity()
     {
-        
+        _activityName = "Breathing";
+        _activityDescription = "This activity will help you relax by walking you through breathing in and out slowly.  Clear your mind and focus on your breathing.";
     }
 
     // Methods
@@ -17,23 +18,22 @@ public class BreathingActivity : Activity
     public void RunBreathingActivity()
     {
        Console.Clear();
-       GetStartMsg(GetDuration());
-       
-       GetTimer();
+       GetStartMsg();
+       Console.WriteLine();
 
-       Console.WriteLine("Done");
+       int duration = _duration;
+       while (duration > 0)
+       {
+            Console.Write("Breath in...");
+            GetCountdown(_breatheInTime);
+            Console.WriteLine("\n");
+            Console.Write("Breath out...");
+            GetCountdown(_breatheOutTime);
+            Console.WriteLine("\n");
+            duration -= _breatheInTime + _breatheOutTime;
+       }
 
-       
-    //    _breatheInTime = 5;
-    //    _breatheOutTime = 5;
-
-    //    while (_duration < (_breatheInTime + _breatheOutTime))
-    //    {
-
-    //    }
-
-
-    
+       GetEndMsg();
     }
 
 }

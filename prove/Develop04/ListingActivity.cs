@@ -1,42 +1,58 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class ListingActivity : Activity
 {
-    private List<string> _randomPrompt = new List<string>();
-    private List<string> _userInput = new List<string>();
-    private int _numberOfItems;
+    private List<string> _randomPrompt = new List<string>()
+    {"Who are people that you appreciate?",
+     "What are personal strengths of yours?",
+     "Who are people you have helped this week?",
+     "When have you felt the Holy Ghost this month?",
+     "Who are some of your personal heroes?"
+    };
 
     // Constructors
-    public ListingActivity(string name, string description) : base(name, description)
+    public ListingActivity() 
     {
-        _randomPrompt.Add("Who are people that you appreciate?");
-        _randomPrompt.Add("What are personal strengths of yours?");
-        _randomPrompt.Add("Who are people you have helped this week?");
-        _randomPrompt.Add("When have you felt the Holy Ghost this month?");
-        _randomPrompt.Add("Who are some of your personal heroes?");
+       _activityName = "Listing";
+       _activityDescription = "This activity will help you reflect on the good things in your life by having yout list as many things as you can in a certain area.";
     }
 
     // // Methods
-    // public string GetRandomPrompt()
-    // {
-    //     return ;
-    // }
 
-    // public void DisplayPrompt()
-    // {
-
-    // }
-
-    // public void DisplayNumberofItems() 
-    // {
-
-    // }
+    public string GetRandomPrompt()
+    {
+        Random random = new Random();
+        int index = random.Next(_randomPrompt.Count);
+        return _randomPrompt[index];
+    }
 
     public void RunListingActivity()
     {
         Console.Clear();
-        GetStartMsg(GetDuration());
+        GetStartMsg();
+        Console.WriteLine(GetRandomPrompt());
+       
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+        int counter = 0;
+        
+        
+        while (stopwatch.Elapsed.TotalSeconds < _duration)
+        {
+            Console.Write(">");
+            Console.ReadLine();
+            counter++;
+        } 
+
+        Console.WriteLine($"\nYou listed {counter} items.");
+
+        stopwatch.Stop();
+
+        GetEndMsg();
+
+        
 
     }
 }
