@@ -23,7 +23,7 @@ class Program
         if (userResponse == 1)
         {
             Console.WriteLine("\nThe types of Goals are: ");
-            Console.WriteLine("1.  Simple Goal \n2.  Eternal Goal \n3. Checklist Goal \n");
+            Console.WriteLine("1.  Simple Goal \n2.  Eternal Goal \n3.  Checklist Goal \n");
             Console.Write("Please make a selection from the menu: ");
             int userAnswer = int.Parse(Console.ReadLine());
             Console.WriteLine();
