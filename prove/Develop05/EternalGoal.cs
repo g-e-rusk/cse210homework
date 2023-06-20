@@ -13,6 +13,10 @@ public class EternalGoal : Goal
     // Methods
     // public override void RecordEvent()
     // {
-    //     base.RecordEvent();
+    //     _pointsEarned += _basePoints;
     // }
+    public override void DisplayGoals()
+    {
+        Console.WriteLine($"[ ] {_goalName} ({_goalDescription})");
+    }
 }

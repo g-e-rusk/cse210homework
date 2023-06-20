@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
@@ -7,10 +8,12 @@ class Program
     static void Main(string[] args)
     {   
         int userResponse = 0;
+        List<Goal> _goalList = new List<Goal>();
+
+        Console.Clear();
 
         while (userResponse != 6)
         {
-        Console.Clear();
         Console.WriteLine("Welcome to Eternal Quest - A Goal Setting Program \n");
         Console.WriteLine("You have 0 points. \n");
         Console.WriteLine("Menu Options: \n");
@@ -18,8 +21,7 @@ class Program
         Console.Write("Select a choice from the menu: ");
         userResponse = int.Parse(Console.ReadLine());
 
-        List<Goal> _goalList = new List<Goal>();
-
+        
         if (userResponse == 1)
         {
             Console.WriteLine("\nThe types of Goals are: ");
@@ -49,10 +51,11 @@ class Program
 
         if (userResponse == 2)
         {
-            foreach (Goal goal in _goalList)
+            for(int i=0; i<_goalList.Count;i++)
             {
-                Console.WriteLine($"{_goalList}");
+                Console.WriteLine(_goalList[i]);
             }
+
         }
 
         if (userResponse == 3)

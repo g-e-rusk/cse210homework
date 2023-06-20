@@ -26,6 +26,9 @@ public class FileHandler
 
     // public string GetStringRepresentation()
     // {
+    //     string goalType = GetType().Name;
+    //     string goalEntry = Console.WriteLine($"{goalType}:{_goalName},{_goalDescription},")
+
     //     return ;
     // }
 }

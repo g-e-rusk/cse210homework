@@ -30,6 +30,11 @@ public class Goal
 
     // }
 
+    public virtual void DisplayGoals()
+    {
+        
+    }
+
     public int GetPoints()
     {
         return _basePoints;

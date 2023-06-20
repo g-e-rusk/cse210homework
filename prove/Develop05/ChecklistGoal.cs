@@ -38,4 +38,9 @@ public class ChecklistGoal : Goal
     //     return ;
     // }
 
+    public override void DisplayGoals()
+    {
+        Console.WriteLine($"[ ] {_goalName} ({_goalDescription}) -- Completed: {_goalCounter}/{_goalNumMax}");
+    }
+
 }
