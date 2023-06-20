@@ -1,0 +1,95 @@
+Week09: Eternal Quest Design
+
+Class: Goal (Base)
+
+Attributes:
+    _goalName: string
+    _goalDescription: string
+    _basePoints: int
+    _pointsEarned: int
+// Goal list created in main program
+
+Behaviors:
+    RecordEvent(): virtual
+    IsComplete(): virtual bool
+
+    GetPoints(): int
+    SetPoints(): void
+    GetMaxGoal(): void
+
+    GetGoals(): string
+    SetGoals(): void
+
+  
+
+Constructors:
+    Goal(string: name, string: description, int: points)
+
+
+-----------------------------------------------------------
+
+Class: SimpleGoal (Derived)
+
+Attributes:
+    (Inherited from base class)
+    _complete: bool
+
+Behaviors:
+    RecordEvent(): override
+    IsComplete(): override
+
+Constructors:
+    SimpleGoal(string: name, string: description, int: points) : base(name, description, points)
+    SimpleGoal(bool: false)
+
+-----------------------------------------------------------
+
+Class: EternalGoal (Derived)
+
+Attributes:
+    (Inherited from base class)
+
+Behaviors:
+    RecordEvent(): override
+
+Constructors:
+    EternalGoal(string: name, string: description, int: points) : base(name, description, points)
+
+-----------------------------------------------------------
+
+Class: ChecklistGoal (Derived)
+
+Attributes:
+    (Inherited from base class)
+    _bonusPoints: int
+    _numMax: int
+    _durationCounter: int
+
+Behaviors:
+    RecordEvent(): override
+    IsComplete(): override
+
+    GetTimesCompleted(): int
+    GetnumMax(): int
+
+Constructors:
+    ChecklistGoal: (string: name, string: description, int: points, int: bonus, int: duration) : base(name, description, points)
+    ChecklistGoal: (int: durationCounter = 0)
+
+-----------------------------------------------------------
+// Optional file handling class or can call from main program
+
+Class: FileHandler
+
+Attributes:
+    _filename: string
+    _pointsEarned: int
+    _goalList: List<Goals>
+
+Behaviors:
+    SaveToFile(): void
+    LoadFile(): void
+    GetStringRepresentation(): string
+
+Constructor: 
+    FileHandler: (List<Goals> _goalList)
