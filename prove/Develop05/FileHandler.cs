@@ -1,22 +1,28 @@
 using System;
+using System.IO;
 
 public class FileHandler
 {
     // Private Member Variables
-    private string _fileName;
-    private int _pointsEarned;
-    private List<Goal> _goalList;
+    protected string _fileName;
+    protected int _pointsEarned;
+    protected List<Goal> _goalList;
 
     // Constructors
-    public FileHandler(List<Goal> _goalList)
+    public FileHandler()
     {
+        
         
     }
 
     // Methods
-    public void SaveToFile()
+    public void SaveToFile(string filename)
     {
-
+        _fileName = filename;
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            outputFile.WriteLine($"{_pointsEarned}");
+        }
     }
 
     public void LoadFile()

@@ -7,6 +7,7 @@ public class Goal
     protected string _goalDescription;
     protected int _basePoints;
     protected int _pointsEarned;
+    protected bool _complete = false;
 
     // Constructors
     public Goal()
@@ -18,45 +19,51 @@ public class Goal
         Console.Write("What is the amount of points associated with this goal? ");
         _basePoints = int.Parse(Console.ReadLine());
     }
+
+    public Goal(int pointsEarned)
+    {
+        _pointsEarned = pointsEarned;
+    }
     
     // Methods
-    // public virtual void RecordEvent()
-    // {
-
-    // }
-
-    // public virtual bool IsComplete()
-    // {
-
-    // }
-
-    public virtual void DisplayGoals()
+    public virtual int RecordEvent()
     {
-        
+       return _pointsEarned += _basePoints;
     }
 
-    public int GetPoints()
+    public virtual string DisplayGoals()
     {
-        return _basePoints;
+        return ($"[{GetCompleteChar()}] {_goalName} ({_goalDescription})");
     }
+
+    public char GetCompleteChar()
+    {
+        if(_complete)
+            return 'X';
+        else
+            return ' ';
+    }
+
+    public bool GetComplete()
+    {
+        return _complete;
+    }
+
+    public virtual string DisplayGoalName()
+    {
+        return _goalName;
+    }
+
+    public int GetUserPoints()
+    {
+        return _pointsEarned;
+    }
+
 
     public void SetPoints()
-    {
-
+    {   
+        Console.WriteLine($"You have {GetUserPoints()} points. \n");
     }
 
-    // public void GetMaxGoal()
-    // {
-
-    // }
-
-    // public string GetGoals()
-    // {
-    //     return ;
-    // }
-
-    // public void SetGoals()
-    // {
-
-    // }
+    
 }

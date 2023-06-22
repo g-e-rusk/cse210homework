@@ -5,7 +5,7 @@ public class ChecklistGoal : Goal
     // Member Variables
     private int _bonusPoints;
     private int _goalNumMax;
-    private int _goalCounter;
+    private int _goalCounter = 0;
 
     // Constructors
     public ChecklistGoal() 
@@ -18,29 +18,29 @@ public class ChecklistGoal : Goal
     }
 
     // Methods
-    // public override void RecordEvent()
-    // {
-    //     base.RecordEvent();
-    // }
-
-    // public override bool IsComplete()
-    // {
-    //     return base.IsComplete();
-    // }
-
-    // public int GetGoalCounter()
-    // {
-    //     return ;
-    // }
-
-    // public int GetGoalNumMax()
-    // {
-    //     return ;
-    // }
-
-    public override void DisplayGoals()
+    public override int RecordEvent()
     {
-        Console.WriteLine($"[ ] {_goalName} ({_goalDescription}) -- Completed: {_goalCounter}/{_goalNumMax}");
+        int totalPoints = _basePoints + _bonusPoints;
+        _goalCounter++;
+
+        if (_goalCounter == _goalNumMax)
+        {
+            _complete = true;
+            return _pointsEarned += totalPoints;
+        }
+        return _pointsEarned += _basePoints;
+        
+        
+    }
+
+    public override string DisplayGoals()
+    {
+        return ($"[{GetCompleteChar()}] {_goalName} ({_goalDescription}) -- Completed: {_goalCounter}/{_goalNumMax}");
+    }
+
+    public override string DisplayGoalName()
+    {
+        return _goalName;
     }
 
 }

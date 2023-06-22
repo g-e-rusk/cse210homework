@@ -3,7 +3,7 @@ using System;
 public class SimpleGoal : Goal
 {
     // Member Variables
-    protected bool _complete = false;
+    
 
     // Constructors
     public SimpleGoal() 
@@ -12,19 +12,15 @@ public class SimpleGoal : Goal
     }
 
     // Methods
-    // public override void RecordEvent()
-    // {
-    //     base.RecordEvent();
-    // }
-
-    // public override bool IsComplete()
-    // {
-    //     _complete = true;
-    // }
-
-    public override void DisplayGoals()
+    public override int RecordEvent()
     {
-        Console.WriteLine($"[ ] {_goalName} ({_goalDescription})");
+        _complete = true;
+        return _pointsEarned += _basePoints;
+    }
+
+    public override string DisplayGoalName()
+    {
+        return _goalName;
     }
 
 
