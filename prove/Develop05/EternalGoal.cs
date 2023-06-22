@@ -10,10 +10,15 @@ public class EternalGoal : Goal
         
     }
 
+    public EternalGoal(string goalName, string goalDescription, int basePoints) : base(goalName, goalDescription, basePoints)
+    {
+
+    }
+
     // Methods
     public override int RecordEvent()
     {
-        return _pointsEarned += _basePoints;
+        return _basePoints;
     }
 
     public override string DisplayGoalName()

@@ -17,6 +17,13 @@ public class ChecklistGoal : Goal
 
     }
 
+    public ChecklistGoal(string goalName, string goalDescription, int basePoints, int bonusPoints, int goalNumMax, int goalCounter) : base(goalName, goalDescription, basePoints)
+    {
+        _bonusPoints = bonusPoints;
+        _goalNumMax = goalNumMax;
+        _goalCounter = goalCounter;
+    }
+
     // Methods
     public override int RecordEvent()
     {
@@ -26,9 +33,9 @@ public class ChecklistGoal : Goal
         if (_goalCounter == _goalNumMax)
         {
             _complete = true;
-            return _pointsEarned += totalPoints;
+            return totalPoints;
         }
-        return _pointsEarned += _basePoints;
+        return _basePoints;
         
         
     }
@@ -43,4 +50,9 @@ public class ChecklistGoal : Goal
         return _goalName;
     }
 
+    public override string GetStringRepresentation()
+    {
+        string goalType = GetType().Name;
+        return ($"{goalType}||{_goalName}||{_goalDescription}||{_basePoints}||{_bonusPoints}||{_goalNumMax}||{_goalCounter}");
+    }
 }

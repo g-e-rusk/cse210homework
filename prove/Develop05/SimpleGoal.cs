@@ -11,16 +11,27 @@ public class SimpleGoal : Goal
         
     }
 
+    public SimpleGoal(string goalName, string goalDescription, int basePoints, bool _complete) : base(goalName, goalDescription, basePoints)
+    {
+        _complete = GetComplete();
+    }
+
     // Methods
     public override int RecordEvent()
     {
         _complete = true;
-        return _pointsEarned += _basePoints;
+        return _basePoints;
     }
 
     public override string DisplayGoalName()
     {
         return _goalName;
+    }
+
+    public override string GetStringRepresentation()
+    {
+        string goalType = GetType().Name;
+        return ($"{goalType}||{_goalName}||{_goalDescription}||{_basePoints}||{_complete}");
     }
 
 

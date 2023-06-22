@@ -20,15 +20,17 @@ public class Goal
         _basePoints = int.Parse(Console.ReadLine());
     }
 
-    public Goal(int pointsEarned)
+    public Goal(string goalName, string goalDescription, int basePoints)
     {
-        _pointsEarned = pointsEarned;
+        _goalName = goalName;
+        _goalDescription = goalDescription;
+        _basePoints = basePoints;
     }
-    
+
     // Methods
     public virtual int RecordEvent()
     {
-       return _pointsEarned += _basePoints;
+       return _basePoints;
     }
 
     public virtual string DisplayGoals()
@@ -54,15 +56,11 @@ public class Goal
         return _goalName;
     }
 
-    public int GetUserPoints()
+
+    public virtual string GetStringRepresentation()
     {
-        return _pointsEarned;
-    }
-
-
-    public void SetPoints()
-    {   
-        Console.WriteLine($"You have {GetUserPoints()} points. \n");
+        string goalType = GetType().Name;
+        return ($"{goalType}||{_goalName}||{_goalDescription}||{_basePoints}");
     }
 
     

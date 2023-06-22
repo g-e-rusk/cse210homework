@@ -1,0 +1,5 @@
+0
+SimpleGoal||Eat a salad||Eat a salad today||20||False
+SimpleGoal||Go for a walk||Walk for 60 minutes||50||False
+EternalGoal||Read my scriptures||Read my scriptures for a minimum of 60 minutes||50
+ChecklistGoal||Make my bed||Make my bed when I first get up||10||100||5||0
