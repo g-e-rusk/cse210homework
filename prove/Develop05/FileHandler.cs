@@ -21,7 +21,7 @@ public class FileHandler
         List<Goal> goals = new List<Goal>();
         string[] lines = File.ReadAllLines(filename);
         foreach (string line in lines)
-        {
+        {   
             string[] data = line.Split("||");
                 switch(data[0])
                 {               

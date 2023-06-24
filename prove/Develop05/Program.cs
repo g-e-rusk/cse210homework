@@ -9,6 +9,7 @@ class Program
     {   
         int userResponse = 0;
         int totalPoints = 0;
+        string filename;
         List<Goal> _goalList = new List<Goal>();
 
         Console.Clear();
@@ -16,6 +17,8 @@ class Program
 
         while (userResponse != 6)
         {
+        Console.WriteLine();
+        Console.WriteLine($"You have {totalPoints} points.\n");
         Console.WriteLine();
         Console.WriteLine("Menu Options: \n");
         Console.WriteLine("1.  Create New Goal \n2.  List Goals \n3.  Save Goals \n4.  Load Goals \n5.  Record Event \n6.  Quit \n"); 
@@ -56,13 +59,13 @@ class Program
             for(int i=0; i<_goalList.Count; i++)
             {
                 Console.WriteLine(_goalList[i].DisplayGoals());
-            }
+            } 
         }
 
         if (userResponse == 3)
         {
             Console.Write("Please enter the filename for your goals: ");
-            string filename = Console.ReadLine();
+            filename = Console.ReadLine();
             FileHandler file = new FileHandler();
             file.SaveToFile(filename, _goalList, totalPoints);
         }
@@ -70,7 +73,7 @@ class Program
         if (userResponse == 4)
         {
             Console.Write("Please enter the filename for your goals: ");
-            string filename = Console.ReadLine();
+            filename = Console.ReadLine();
             FileHandler goals = new FileHandler();
             goals.LoadFile(filename);
         }
@@ -92,7 +95,7 @@ class Program
 
             Console.Write("Which goal did you accomplish? ");
             int completedGoal = int.Parse(Console.ReadLine());
-           totalPoints += _goalList[indexes[completedGoal - 1]].RecordEvent();
+            totalPoints += _goalList[indexes[completedGoal - 1]].RecordEvent();
             
         }
 
