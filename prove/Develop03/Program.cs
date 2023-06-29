@@ -15,7 +15,7 @@ class Program
         Console.WriteLine("Press enter to continue or type 'quit' to finish:");
         string userResponse = Console.ReadLine();
         bool completlyHidden = false;
-        while (userResponse != "quit" || completlyHidden == false)
+        while (userResponse.ToLower() != "quit" || completlyHidden == false)
         {
             Console.Clear();
             int counter = 0;
