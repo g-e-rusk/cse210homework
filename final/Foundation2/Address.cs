@@ -3,33 +3,25 @@ using System;
 public class Address
 {
     // Member Variables
-    private string _streetAddress;
-    private string _city;
-    private string _stateOrProvince;
-    private string _country;
+    private string _streetAddress {get; set;}
+    private string _city {get; set;}
+    private string _stateOrProvince {get; set;}
+    private string _country {get; set;}
 
     // Constructors
     public Address()
     {
     }
 
-    public Address(string street, string city, string state, string country)
-    {
-        _streetAddress = street;
-        _city = city;
-        _stateOrProvince = state;
-        _country = country;
-    }
-
-    // Methods
+    // Methods (Getters and Setters)
     public string GetCountry()
     {
         return _country;
     }
 
-    public void SetCountry()
+    public void SetCountry(string country)
     {
-        Console.WriteLine(GetCountry());
+        _country = country;
     }
 
     public string GetAddress()
@@ -37,9 +29,13 @@ public class Address
         return $"{_streetAddress}\n{_city}, {_stateOrProvince}\n{_country}";
     }
 
-    public void SetAddress()
+    public void SetAddress(string street, string city, string state, string country)
     {
-        Console.WriteLine(GetAddress());
+        _streetAddress = street;
+        _city = city;
+        _stateOrProvince = state;
+        _country = country;
+        
     }
 
 

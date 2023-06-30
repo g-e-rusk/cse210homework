@@ -18,7 +18,7 @@ public class Product
         _productName = name;
         _productID = id;
     }
-    
+
     public Product(string name, string id, double price, int quantity)
     {
         _productName = name;
@@ -31,6 +31,26 @@ public class Product
     public double GetSubtotalPrice()
     {
         return _productPrice * _productQuantity;
+    }
+
+    public string GetProductName()
+    {
+        return _productName;
+    }
+
+    public void SetProductName()
+    {
+        Console.WriteLine(GetProductName());
+    }
+
+    public string GetProductID()
+    {
+        return _productID + "";
+    }
+
+    public void SetProductID()
+    {
+        Console.Write(GetProductID());
     }
 
 }

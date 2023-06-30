@@ -11,21 +11,34 @@ public class Customer
     {
     }
 
-    public Customer(string name)
-    {
-        _customerName = name;
-    }
+    // public Customer(string name)
+    // {
+    //     _customerName = name;
+    // }
 
-    public Customer(string name, Address address)
-    {
-        _customerName = name;
-        _customerAddress = address;
-    }
+    // public Customer(Address _customerAddress)
+    // {
+    //     _customerAddress = new Address();
+    //     _customerAddress.SetAddress(street, city, state, country);
+        
+
+    // }
 
     // Methods
+    public string GetCustomerName()
+    {
+        return _customerName;
+    }
+
+    public void SetCustomerName(string name)
+    {
+        _customerName = name;
+    }
+
     public void GetCustomerAddress()
     {
-        _customerAddress.GetAddress();
+        Address _customerAddress = new Address();
+        _customerAddress.SetAddress(street, city, state, country);
     }
 
     public void GetCustomerCountry()
