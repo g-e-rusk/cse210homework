@@ -2,21 +2,27 @@ using System;
 
 public class Address
 {
+    
+
     // Member Variables
-    private string _streetAddress {get; set;}
-    private string _city {get; set;}
-    private string _stateOrProvince {get; set;}
-    private string _country {get; set;}
+    private string _streetAddress;
+    private string _city;
+    private string _stateOrProvince;
+    private string _country;
 
     // Constructors
-    public Address()
+    public Address(string street, string city, string state, string country)
     {
+        _streetAddress = street;
+        _city = city;
+        _stateOrProvince = state;
+        _country = country;
     }
 
     // Methods (Getters and Setters)
-    public string GetCountry()
+    public bool GetCountry()
     {
-        return _country;
+        return _country.ToLower() == "usa";
     }
 
     public void SetCountry(string country)
@@ -35,7 +41,6 @@ public class Address
         _city = city;
         _stateOrProvince = state;
         _country = country;
-        
     }
 
 

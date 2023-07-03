@@ -4,25 +4,14 @@ public class Customer
 {
     // Member Variables
     private string _customerName;
-    private Address _customerAddress = new Address();
+    private Address _customerAddress;
 
     // Constructors
-    public Customer()
+    public Customer(string customerName, Address address)
     {
+        _customerAddress = address;
+        _customerName = customerName;
     }
-
-    // public Customer(string name)
-    // {
-    //     _customerName = name;
-    // }
-
-    // public Customer(Address _customerAddress)
-    // {
-    //     _customerAddress = new Address();
-    //     _customerAddress.SetAddress(street, city, state, country);
-        
-
-    // }
 
     // Methods
     public string GetCustomerName()
@@ -35,16 +24,9 @@ public class Customer
         _customerName = name;
     }
 
-    public void GetCustomerAddress()
+    public Address GetCustomerAddress()
     {
-        Address _customerAddress = new Address();
-        _customerAddress.SetAddress(street, city, state, country);
+        return _customerAddress;
     }
-
-    public void GetCustomerCountry()
-    {
-        _customerAddress.GetCountry();
-    }
-
 
 }

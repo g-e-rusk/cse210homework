@@ -1,52 +1,66 @@
 using System;
+using System.Collections.Generic;
 
 public class Order
 {
     // Member Variables
     private List<Product> _productList = new List<Product>();
 
-    private Customer _newCustomer;
+    private Customer _customer;
 
     // Constructors
-    public Order(string name)
+    public Order(string customerName, string street, string city, string state, string country)
     {
-        _newCustomer = new Customer(name); //Gets the name of the customer
-
-    }
-
-    public Order(string id, string name)
-    {
-        // Instantiates the product class and adds the product id and product name to the list
-        Product products = new Product(id, name);
-        products.GetProductName();
-        products.GetProductID();
-        _productList.Add(products);
+        Address address = new Address(street, city, state, country); // Instantiates the Address class
+         _customer = new Customer(customerName, address); //Gets the name of the customer
     }
 
     // Methods
-    public void GetPackingSlip()
+    public void PrintPackingSlip()
     {    
-        // Prints the customer name
-        _newCustomer.SetCustomerName(name);
         // Prints the product ID and product name in a list
+        Console.WriteLine("Click and Ship Packing List:");
         foreach(Product product in _productList)
         {
-            product.SetProductID();
-            product.SetProductName();
+            Console.WriteLine($"{product.GetProductID()}: {product.GetProductName()} ({product.GetProductQuantity()})");
         }
     }
 
-    public void GetShippingLabel()
+    public void PrintShippingLabel()
     {
         // Prints the customer name and instantiates the Address class from the Customer class
-        _newCustomer.SetCustomerName(name);
-        Customer customerAddress = new Customer();
-        customerAddress.GetCustomerAddress();
+        Console.WriteLine("Click and Ship Shipping Label: ");
+        Console.WriteLine(_customer.GetCustomerName());
+        Console.WriteLine(_customer.GetCustomerAddress().GetAddress());
     }
 
-    public void CalculateShippingCosts()
+    public double CalculateShippingCosts()
     {
-
+        // Checks to see the customer country and returns the correct shipping amount
+        if (_customer.GetCustomerAddress().GetCountry())
+            return 5;
+        else
+            return 35;
     }
+
+    public double TotalOrderPrice()
+    {
+        double productOrder = 0 + CalculateShippingCosts(); 
+        foreach(Product product in _productList)
+        {
+            productOrder += product.GetSubtotalPrice();
+        }
+
+
+        return Math.Round(productOrder, 2);
+    }
+
+    public void AddProduct(string name, string id, double price, int quantity)
+    {
+        Product product = new Product(name, id, price, quantity);
+        _productList.Add(product);
+    }
+
+
 
 }
