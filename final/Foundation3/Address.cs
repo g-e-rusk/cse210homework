@@ -18,8 +18,8 @@ public class Address
     }
 
     // Methods
-    public string AddressDisplay()
+    public string GetAddressDisplay()
     {
-        return $"{_streetAddress}\n{_city}, {_stateOrProvince}\n {_country}";
+        return $"{_streetAddress}\n{_city}, {_stateOrProvince} {_country}";
     }
 }
